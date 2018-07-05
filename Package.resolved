@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CMySQL",
+        "repositoryURL": "https://github.com/vapor/cmysql.git",
+        "state": {
+          "branch": null,
+          "revision": "d931ed6ce52e772cd364fc0da59312440d6eee43",
+          "version": "2.0.2"
+        }
+      },
+      {
+        "package": "MySQL",
+        "repositoryURL": "https://github.com/novi/mysql-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "a313395196c5ccc9e149579238b3725f46623920",
+          "version": "0.9.1"
+        }
+      },
+      {
+        "package": "SwiftDotEnv",
+        "repositoryURL": "https://github.com/SwiftOnTheServer/SwiftDotEnv.git",
+        "state": {
+          "branch": null,
+          "revision": "2a7527210766fc726fb3d26fa9b8f295841e73df",
+          "version": "2.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
