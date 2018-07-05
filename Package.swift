@@ -6,16 +6,20 @@ import PackageDescription
 let package = Package(
     name: "grand-prix-stats-api",
     products: [
-        .executable(name: "api", targets: ["APIGenerator"])
+        .executable(name: "generator", targets: ["APIGenerator"]),
+        .executable(name: "gps", targets: ["GrandPrixStatsCLI"]),
+        .library(name: "GrandPrixStatsKit", targets: ["GrandPrixStatsKit"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/SwiftOnTheServer/SwiftDotEnv.git", .upToNextMinor(from: "2.0.0")),
-        .package(url: "https://github.com/novi/mysql-swift.git", .upToNextMinor(from: "0.9.0")),
+        .package(url: "https://github.com/novi/mysql-swift.git", .upToNextMinor(from: "0.9.0"))
     ],
     targets: [
-      .target(name: "GPSModels", dependencies: []),
-      .target(name: "APIGenerator", dependencies: ["SwiftDotEnv", "MySQL", "GPSModels"]),
+        .target(name: "GPSModels", dependencies: []),
+        .target(name: "APIGenerator", dependencies: ["SwiftDotEnv", "MySQL", "GPSModels"]),
+        .target(name: "GrandPrixStatsCLI", dependencies: ["GrandPrixStatsKit"]),
+        .target(name: "GrandPrixStatsKit", dependencies: ["GPSModels"])
     ]
 )
