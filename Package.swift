@@ -14,7 +14,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/SwiftOnTheServer/SwiftDotEnv.git", .upToNextMinor(from: "2.0.0")),
-        .package(url: "https://github.com/novi/mysql-swift.git", .upToNextMinor(from: "0.9.0"))
+        .package(url: "https://github.com/vapor/mysql.git", .upToNextMinor(from: "3.1.0"))
     ],
     targets: [
         .target(name: "GPSModels", dependencies: []),
