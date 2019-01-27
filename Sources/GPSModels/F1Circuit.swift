@@ -1,5 +1,6 @@
 
-open class F1Circuit: Codable {
-    public var circuitRef: String?
-    public var name: String?
+public struct F1Circuit: Codable {
+    public var circuitRef: String
+    public var name: String
+    public var location: String
 }

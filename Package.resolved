@@ -99,6 +99,15 @@
           "revision": "2a7527210766fc726fb3d26fa9b8f295841e73df",
           "version": "2.0.1"
         }
+      },
+      {
+        "package": "Swiftgger",
+        "repositoryURL": "https://github.com/mczachurski/Swiftgger.git",
+        "state": {
+          "branch": null,
+          "revision": "db3140b2183f7b80f15e3d53ee3046769950aab7",
+          "version": "1.2.2"
+        }
       }
     ]
   },
