@@ -28,7 +28,7 @@ func serialize<T: Encodable>(item: T) throws -> String {
     return String(data: data, encoding: .utf8) ?? ""
 }
 
-//try run()
+//try run()`
 
 struct Exception: Error, LocalizedError {
     let message: String
@@ -42,14 +42,26 @@ _ = openAPIBuilder.add(server)
 
 let allCircuitsResponse = APIResponse(code: "200", description: "Success", array: F1Circuit.self)
 let allCircuits = APIAction(method: .get,
-                            route: "/circuits/all.json",
+                            route: "/circuits.json",
                             summary: "List of all Formula 1® circuits",
-                            description: "Retrieve a list of all Formula 1® circuits",
+                            description: "Returns a list of all Formula 1® circuits",
                             parameters: nil,
                             request: nil,
                             responses: [allCircuitsResponse],
                             authorization: false)
-_ = openAPIBuilder.add(APIController(name: "F1 Circuit", description: "Circuits where Formula 1® races are held", actions: [allCircuits]))
+let singleCircuit = APIAction(method: .get,
+                              route: "/circuits/{circuitRef}.json",
+                              summary: "Retrieve a circuit by reference Id",
+                              description: "Returns a single circuit",
+                              parameters: [APIParameter(name: "circuitRef",
+                                                        description: "Reference of the circuit",
+                                                        required: true)],
+                              request: nil, responses: [APIResponse(code: "200", description: "Success", object: F1Circuit.self)],
+                              authorization: false)
+_ = openAPIBuilder.add(APIController(name: "F1 Circuit", description: "Circuits where Formula 1® races are held", actions: [
+    allCircuits,
+    singleCircuit
+    ]))
 
 _ = openAPIBuilder.add([
     APIObject(object: try F1Circuit.makeExampleInstance())
