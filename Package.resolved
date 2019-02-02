@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "03c541a24dd0558c942b15d8464eb75d70a921c4",
-          "version": "1.12.1"
+          "revision": "98434c1f1d687ff5a24d2cabfbd19b5c7d2d7a2f",
+          "version": "1.13.0"
         }
       },
       {
@@ -102,11 +102,11 @@
       },
       {
         "package": "Swiftgger",
-        "repositoryURL": "https://github.com/mczachurski/Swiftgger.git",
+        "repositoryURL": "/Users/enekoalonso/dev/eneko/Swiftgger",
         "state": {
-          "branch": null,
-          "revision": "db3140b2183f7b80f15e3d53ee3046769950aab7",
-          "version": "1.2.2"
+          "branch": "master",
+          "revision": "2e7cfc0266835f0fab24de1e22619df0b3e285fc",
+          "version": null
         }
       }
     ]
