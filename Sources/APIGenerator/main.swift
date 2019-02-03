@@ -14,12 +14,11 @@ let openAPIBuilder = OpenAPIBuilder(
 )
 
 func run() throws {
-    print("Connecting to database...")
     try database.connect()
 
-//    let circuits = try CollectionGenerator<F1Circuit>(tableName: "gpsCircuits").load()
-    let circuits = try Query(sql: "select * from gpsCircuits order by name", database: database).execute() as [F1Circuit]
-    print(try serialize(item: circuits))
+    try CollectionGenerator<F1Circuit>(table: "gpsCircuits", orderBy: "name").write(to: "apiv1/f1/circuits/all.json")
+//    try CollectionGenerator<F1Constructor>(table: "gpsCircuits", orderBy: "name").write(to: "apiv1/f1/circuits/all.json")
+//    let circuits = try Query(sql: "select * from gpsCircuits order by name", database: database).execute() as [F1Circuit]
 }
 
 func serialize<T: Encodable>(item: T) throws -> String {
