@@ -102,10 +102,10 @@
       },
       {
         "package": "Swiftgger",
-        "repositoryURL": "/Users/enekoalonso/dev/eneko/Swiftgger",
+        "repositoryURL": "https://github.com/eneko/Swiftgger.git",
         "state": {
           "branch": "master",
-          "revision": "2e7cfc0266835f0fab24de1e22619df0b3e285fc",
+          "revision": "3f436677602555c790290e36279e535846e3f520",
           "version": null
         }
       }

@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "GrandPrixStatsKit", targets: ["GrandPrixStatsKit"])
     ],
     dependencies: [
-        .package(url: "../../eneko/Swiftgger", .branch("master")),
+        .package(url: "https://github.com/eneko/Swiftgger.git", .branch("master")),
         .package(url: "https://github.com/SwiftOnTheServer/SwiftDotEnv.git", .upToNextMinor(from: "2.0.0")),
         .package(url: "https://github.com/vapor/mysql.git", .upToNextMinor(from: "3.1.0"))
     ],

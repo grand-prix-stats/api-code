@@ -27,8 +27,8 @@ extension F1Circuit: ExampleModelable {
     {
         "name" : "Circuit de Monaco",
         "circuitRef" : "monaco",
-        "location" : "Monte-Carlo"
+        "location" : "Monte-Carlo",
+        "races" : 66
     }
     """
-
 }
