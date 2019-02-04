@@ -16,16 +16,51 @@ let openAPIBuilder = OpenAPIBuilder(
 func run() throws {
     try database.connect()
 
-    try CollectionGenerator<F1Circuit>(table: "gpsCircuits", orderBy: "name").write(to: "apiv1/f1/circuits/all.json")
-//    try CollectionGenerator<F1Constructor>(table: "gpsCircuits", orderBy: "name").write(to: "apiv1/f1/circuits/all.json")
-//    let circuits = try Query(sql: "select * from gpsCircuits order by name", database: database).execute() as [F1Circuit]
+//    try CollectionGenerator<F1Circuit>(table: "gpsCircuits", orderBy: "name").write(to: "apiv1/f1/circuits/all.json")
+//    try CollectionGenerator<F1Constructor>(table: "gpsConstructors", orderBy: "name").write(to: "apiv1/f1/circuits/all.json")
+    let circuits = try Query(sql: "select * from gpsCircuits order by name", database: database).execute() as [F1Circuit]
+    let csv = try serializeCSV(items: circuits)
+    print(csv)
 }
 
-func serialize<T: Encodable>(item: T) throws -> String {
+func serializeJSON<T: Encodable>(item: T) throws -> String {
     let encoder = JSONEncoder()
     encoder.outputFormatting = .prettyPrinted
     let data = try encoder.encode(item)
     return String(data: data, encoding: .utf8) ?? ""
+}
+
+func serializeCSV<T: Encodable>(items: [T]) throws -> String {
+    guard let first: T = items.first else {
+        return ""
+    }
+    let headers = Mirror(reflecting: first).children.map { $0.label ?? "" }
+    let rows = items.map { item -> String in
+        let properties = Mirror(reflecting: item).children
+        let values = headers.map { header -> String in
+            guard let value = properties.first(where: { $0.label == header })?.value else {
+                return ""
+            }
+            return unwrapToString(value).replacingOccurrences(of: "\"", with: "\\\"")
+        }
+        return csvRow(columns: values)
+    }
+    return ([csvRow(columns: headers)] + rows).joined(separator: "\n")
+}
+
+func csvRow(columns: [String]) -> String {
+    return columns.map { "\"\($0)\"" }.joined(separator: ",")
+}
+
+func unwrapToString<T>(_ value: T) -> String {
+    let mirror = Mirror(reflecting: value)
+    guard mirror.displayStyle == .optional else {
+        return String(describing: value)
+    }
+    guard let unwrapped = mirror.children.first else {
+        return ""
+    }
+    return unwrapToString(unwrapped.value)
 }
 
 try run()
@@ -68,5 +103,5 @@ func generateSpec() throws {
         APIObject(object: try F1Circuit.makeExampleInstance())
     ])
     let document = openAPIBuilder.built()
-    print(try serialize(item: document))
+    print(try serializeJSON(item: document))
 }

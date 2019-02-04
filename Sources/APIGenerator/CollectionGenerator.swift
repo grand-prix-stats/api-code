@@ -20,7 +20,7 @@ struct CollectionGenerator<Model: Codable> {
 
     func write(to filename: String) throws {
         let rows = try load()
-        let json = try serialize(item: rows)
+        let json = try serializeJSON(item: rows)
         let filepath = URL(fileURLWithPath: filename)
         let directory = filepath.deletingLastPathComponent()
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true, attributes: nil)
