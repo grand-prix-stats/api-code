@@ -8,6 +8,13 @@
 import Foundation
 import GPSModels
 
+struct Exception: Error, LocalizedError {
+    let message: String
+    var localizedDescription: String {
+        return message
+    }
+}
+
 protocol ExampleModelable {
     static var exampleJSON: String { get }
 }
