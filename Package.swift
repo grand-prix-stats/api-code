@@ -12,8 +12,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/eneko/Swiftgger.git", .branch("master")),
-        .package(url: "https://github.com/SwiftOnTheServer/SwiftDotEnv.git", .upToNextMinor(from: "2.0.0")),
-        .package(url: "https://github.com/vapor/mysql.git", .upToNextMinor(from: "3.1.0"))
+        .package(url: "https://github.com/SwiftOnTheServer/SwiftDotEnv.git", .upToNextMajor(from: "2.0.0")),
+        .package(url: "https://github.com/vapor/mysql.git", .upToNextMajor(from: "3.1.0"))
     ],
     targets: [
         .target(name: "GPSModels", dependencies: []),

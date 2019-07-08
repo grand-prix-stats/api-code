@@ -47,4 +47,12 @@ class Database: DatabaseType {
         return try connection.raw(query.sql).binds(query.values).all(decoding: T.self).wait()
     }
 
+//    @discardableResult
+//    func execute2(_ query: Query) throws {
+//        guard let connection = connection else {
+//            throw Error.notConnected
+//        }
+//        return try connection.raw(query.sql).binds(query.values).all().wait()
+//    }
+
 }

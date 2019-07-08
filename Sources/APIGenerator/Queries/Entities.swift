@@ -7,6 +7,6 @@
 
 import GPSModels
 
-func allCircuits() -> [F1Circuit] {
-
-}
+//func allCircuits() -> [F1Circuit] {
+//
+//}
