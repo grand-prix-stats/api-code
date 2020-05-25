@@ -4,6 +4,7 @@
 /Packages
 /*.xcodeproj
 apiv1
+.swiftpm
 
 # Xcode
 #
