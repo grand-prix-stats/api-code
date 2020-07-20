@@ -11,6 +11,8 @@ public struct F1Race: Codable {
     public let raceRef: String
     public let year: Int
     public let round: Int
+    public let date: Date
+    public let time: TimeInterval?
     public let circuitRef: String
     public let circuitName: String
     public let winningDriverRef: String?

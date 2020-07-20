@@ -8,11 +8,11 @@
 import Foundation
 
 public struct F1Season: Codable {
-    let year: Int
-    let rounds: Int
-    let startDate: Date
-    let endDate: Date
-    let driversChampionRef: String?
-    let constructorsChampionRef: String?
-    let constructorChamtionsColor: String?
+    public let year: Int
+    public let rounds: Int
+    public let startDate: Date
+    public let endDate: Date
+    public let driversChampionRef: String?
+    public let constructorsChampionRef: String?
+    public let constructorChamtionsColor: String?
 }
