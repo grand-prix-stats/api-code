@@ -9,7 +9,7 @@ import Foundation
 
 func serializeJSON<T: Encodable>(item: T) throws -> String {
     let encoder = JSONEncoder()
-    encoder.outputFormatting = .prettyPrinted
+    encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
     encoder.dateEncodingStrategy = .secondsSince1970
     let data = try encoder.encode(item)
     return String(data: data, encoding: .utf8) ?? ""
