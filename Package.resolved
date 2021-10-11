@@ -2,12 +2,21 @@
   "object": {
     "pins": [
       {
+        "package": "AnyCodable",
+        "repositoryURL": "https://github.com/Flight-School/AnyCodable",
+        "state": {
+          "branch": null,
+          "revision": "b1a7a8a6186f2fcb28f7bda67cfc545de48b3c80",
+          "version": "0.6.2"
+        }
+      },
+      {
         "package": "Core",
         "repositoryURL": "https://github.com/vapor/core.git",
         "state": {
           "branch": null,
-          "revision": "1782c550512dc5a43d0bca405e28fc386d932bbf",
-          "version": "3.10.0"
+          "revision": "89c6989fd8b1e08acfd198afba1c38971bb814b2",
+          "version": "3.10.1"
         }
       },
       {
@@ -15,8 +24,8 @@
         "repositoryURL": "https://github.com/vapor/crypto.git",
         "state": {
           "branch": null,
-          "revision": "df8eb7d8ae51787b3a0628aa3975e67666da936c",
-          "version": "3.3.3"
+          "revision": "105c2f875588bf40dd24c00cef3644bf8e327770",
+          "version": "3.4.1"
         }
       },
       {
@@ -60,8 +69,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "8da5c5a4e6c5084c296b9f39dc54f00be146e0fa",
-          "version": "1.14.2"
+          "revision": "546610d52b19be3e19935e0880bb06b9c03f5cef",
+          "version": "1.14.4"
         }
       },
       {
@@ -105,7 +114,7 @@
         "repositoryURL": "https://github.com/eneko/Swiftgger.git",
         "state": {
           "branch": "master",
-          "revision": "3f436677602555c790290e36279e535846e3f520",
+          "revision": "3b1b9f6bcb51796a37e8c78cacf39e3bcc9af393",
           "version": null
         }
       }
