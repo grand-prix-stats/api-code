@@ -6,8 +6,8 @@ public struct F1Circuit: Codable {
     public let country: String
     public let countryFlag: String
     public let countryCode: String
-    public let lat: Double
-    public let lng: Double
+    public let lat: Float
+    public let lng: Float
     public let alt: Int?
     public let url: String
     public let races: Int

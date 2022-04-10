@@ -1,5 +1,5 @@
 import Foundation
-import MySQL
+//import MySQLKit
 import GPSModels
 
 let database = Database.shared

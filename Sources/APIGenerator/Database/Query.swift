@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import MySQL
+import MySQLKit
 
 class Query {
     let sql: String
@@ -26,23 +26,24 @@ extension Query {
     static var cache = Cache<String, [Codable]>()
 
     var key: String {
-        return sql + ":::" + stringValues.joined(separator: ":::")
+        sql + ":::" + stringValues.joined(separator: ":::")
     }
 
     var stringValues: [String] {
-        return values.map { ($0 as? CustomStringConvertible)?.description ?? ""
+        values.map {
+            ($0 as? CustomStringConvertible)?.description ?? ""
         }
     }
 
-    @discardableResult
-    func execute<T: Codable>() throws -> [T] {
-        if let result = Query.cache.get(key: key) as? [T] {
-            return result
-        }
-
-        let result: [T] = try database.execute(self)
-        Query.cache.set(value: result, forKey: key)
-        return result
-    }
+//    @discardableResult
+//    func execute<T: Codable>() throws -> [T] {
+//        if let result = Query.cache.get(key: key) as? [T] {
+//            return result
+//        }
+//
+//        let result: [T] = try database.execute(self)
+//        Query.cache.set(value: result, forKey: key)
+//        return result
+//    }
 
 }
