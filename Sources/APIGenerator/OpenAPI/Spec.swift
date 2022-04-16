@@ -21,7 +21,7 @@ func generateSpec() throws {
     let server = APIServer(url: "/api/v1/f1")
     _ = openAPIBuilder.add(server)
 
-    let allCircuitsResponse = APIResponse(code: "200", description: "Success", array: F1Circuit.self)
+    let allCircuitsResponse = APIResponse(code: "200", description: "Success", array: GPSCircuit.self)
     let allCircuits = APIAction(method: .get,
                                 route: "/circuits.json",
                                 summary: "List of all Formula 1® circuits",
@@ -37,7 +37,7 @@ func generateSpec() throws {
                                   parameters: [APIParameter(name: "circuitRef",
                                                             description: "Reference of the circuit",
                                                             required: true)],
-                                  request: nil, responses: [APIResponse(code: "200", description: "Success", object: F1Circuit.self)],
+                                  request: nil, responses: [APIResponse(code: "200", description: "Success", object: GPSCircuit.self)],
                                   authorization: false)
     _ = openAPIBuilder.add(APIController(name: "F1 Circuit", description: "Circuits where Formula 1® races are held", actions: [
         allCircuits,
@@ -45,7 +45,7 @@ func generateSpec() throws {
         ]))
 
     _ = openAPIBuilder.add([
-        APIObject(object: try F1Circuit.makeExampleInstance())
+        APIObject(object: try GPSCircuit.makeExampleInstance())
         ])
     let document = openAPIBuilder.built()
     print(try serializeJSON(item: document))

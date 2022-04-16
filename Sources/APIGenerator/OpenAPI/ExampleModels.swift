@@ -29,7 +29,7 @@ extension ExampleModelable where Self: Decodable {
     }
 }
 
-extension F1Circuit: ExampleModelable {
+extension GPSCircuit: ExampleModelable {
     static let exampleJSON = """
     {
         "name" : "Circuit de Monaco",

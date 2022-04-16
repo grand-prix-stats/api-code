@@ -14,12 +14,12 @@ let package = Package(
         .library(name: "GrandPrixStatsKit", targets: ["GrandPrixStatsKit"])
     ],
     dependencies: [
+        .package(name: "GPSModels", path: "../GPSModels"),
         .package(url: "https://github.com/eneko/Swiftgger.git", branch: "master"),
         .package(url: "https://github.com/SwiftOnTheServer/SwiftDotEnv.git", .upToNextMajor(from: "2.0.0")),
         .package(url: "https://github.com/vapor/mysql-kit.git", .upToNextMajor(from: "4.0.0"))
     ],
     targets: [
-        .target(name: "GPSModels", dependencies: []),
         .executableTarget(name: "APIGenerator", dependencies: [
             .product(name: "MySQLKit", package: "mysql-kit"),
             "SwiftDotEnv", "GPSModels", "Swiftgger"
