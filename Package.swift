@@ -6,15 +6,15 @@ import PackageDescription
 let package = Package(
     name: "grand-prix-stats-api",
     platforms: [
-        .macOS(.v10_15)
+        .macOS(.v11)
     ],
     products: [
         .executable(name: "generator", targets: ["APIGenerator"]),
-        .executable(name: "gps", targets: ["GrandPrixStatsCLI"]),
+        .executable(name: "gps-api-client", targets: ["APIClient"]),
         .library(name: "GrandPrixStatsKit", targets: ["GrandPrixStatsKit"])
     ],
     dependencies: [
-        .package(name: "GPSModels", path: "../GPSModels"),
+        .package(name: "GrandPrixStats", path: "../GrandPrixStats"),
         .package(url: "https://github.com/eneko/Swiftgger.git", branch: "master"),
         .package(url: "https://github.com/SwiftOnTheServer/SwiftDotEnv.git", .upToNextMajor(from: "2.0.0")),
         .package(url: "https://github.com/vapor/mysql-kit.git", .upToNextMajor(from: "4.0.0"))
@@ -22,9 +22,12 @@ let package = Package(
     targets: [
         .executableTarget(name: "APIGenerator", dependencies: [
             .product(name: "MySQLKit", package: "mysql-kit"),
-            "SwiftDotEnv", "GPSModels", "Swiftgger"
+            .product(name: "GPSModels", package: "GrandPrixStats"),
+            "SwiftDotEnv", "Swiftgger"
         ]),
-        .executableTarget(name: "GrandPrixStatsCLI", dependencies: ["GrandPrixStatsKit"]),
-        .target(name: "GrandPrixStatsKit", dependencies: ["GPSModels"])
+        .executableTarget(name: "APIClient", dependencies: ["GrandPrixStatsKit"]),
+        .target(name: "GrandPrixStatsKit", dependencies: [
+            .product(name: "GPSModels", package: "GrandPrixStats"),
+        ])
     ]
 )
