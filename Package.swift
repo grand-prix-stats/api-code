@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "grand-prix-stats-api",
     platforms: [
-        .macOS(.v11)
+        .macOS(.v12)
     ],
     products: [
         .executable(name: "generator", targets: ["APIGenerator"]),
@@ -16,7 +16,7 @@ let package = Package(
     dependencies: [
         .package(name: "GrandPrixStats", path: "../GrandPrixStats"),
         .package(url: "https://github.com/eneko/Swiftgger.git", branch: "master"),
-        .package(url: "https://github.com/SwiftOnTheServer/SwiftDotEnv.git", .upToNextMajor(from: "2.0.0")),
+        .package(url: "https://github.com/eneko/SwiftDotEnv", branch: "main"),
         .package(url: "https://github.com/vapor/mysql-kit.git", .upToNextMajor(from: "4.0.0"))
     ],
     targets: [
