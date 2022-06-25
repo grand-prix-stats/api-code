@@ -7,7 +7,7 @@
 
 import Foundation
 import Swiftgger
-import GPSModels
+import GPSEntities
 
 let openAPIBuilder = OpenAPIBuilder(
     title: "Grand Prix Stats API",

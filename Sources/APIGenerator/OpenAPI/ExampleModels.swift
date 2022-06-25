@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import GPSModels
+import GPSEntities
 
 struct Exception: Error, LocalizedError {
     let message: String

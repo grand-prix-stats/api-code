@@ -22,12 +22,12 @@ let package = Package(
     targets: [
         .executableTarget(name: "APIGenerator", dependencies: [
             .product(name: "MySQLKit", package: "mysql-kit"),
-            .product(name: "GPSModels", package: "GrandPrixStats"),
+            .product(name: "GPSEntities", package: "GrandPrixStats"),
             "SwiftDotEnv", "Swiftgger"
         ]),
         .executableTarget(name: "APIClient", dependencies: ["GrandPrixStatsKit"]),
         .target(name: "GrandPrixStatsKit", dependencies: [
-            .product(name: "GPSModels", package: "GrandPrixStats"),
+            .product(name: "GPSEntities", package: "GrandPrixStats"),
         ])
     ]
 )
