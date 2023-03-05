@@ -20,6 +20,24 @@
         }
       },
       {
+        "package": "GRDB",
+        "repositoryURL": "https://github.com/groue/GRDB.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "dd7e7f39e8e4d7a22d258d9809a882f914690b01",
+          "version": "5.26.1"
+        }
+      },
+      {
+        "package": "Gzip",
+        "repositoryURL": "https://github.com/eneko/GzipSwift.git",
+        "state": {
+          "branch": "develop",
+          "revision": "2e44dff8f00cadc1b036b9359011c66f1acf83ec",
+          "version": null
+        }
+      },
+      {
         "package": "mysql-kit",
         "repositoryURL": "https://github.com/vapor/mysql-kit.git",
         "state": {
